@@ -43,6 +43,8 @@
                 set: (val) => input.val(val),
                 throw: (err) => error.html(err),
                 reset: () => error.empty(),
+                contained: () => input.contained(),
+                focus: () => input.focus(),
             };
         }
         $.styleSheet(`
