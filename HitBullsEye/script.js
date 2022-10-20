@@ -43,6 +43,8 @@
                 set: (val) => input.val(val),
                 throw: (err) => error.html(err),
                 reset: () => error.empty(),
+                contained: () => input.contained(),
+                focus: () => input.focus(),
             };
         }
         $.styleSheet(`
@@ -97,6 +99,7 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: 50%;
+                z-index: 1;
             }
             pass-test-main.shown pass-test-toggler {
                 rotate: 180deg;
@@ -219,10 +222,11 @@
             pass-test-progress,
             pass-test-bar-progress {
                 position: absolute;
-                heigth: 100%;
+                height: 100%;
                 inset: 0 auto 0 0;
                 background: #2bc48a33;
                 transition: all .4s ease;
+                z-index: -1;
             }
         `, "head", '[pass-test]');
 
@@ -234,7 +238,7 @@
         e.togl = $.ce('pass-test-toggler', '▲').attr('title', 'Show/hide').click(function () {
             e.main.toggleClass('shown');
             if (e.main.hasClass('shown') && e.form.string.contained()) {
-                e.form.string.focus();
+            	e.form.string.focus();
             }
         }).appendTo(e.head);
         e.body = $.ce('pass-test-body').appendTo(e.main);
