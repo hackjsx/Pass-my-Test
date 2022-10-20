@@ -68,7 +68,7 @@
                         }
                     }
                     function noAnswer(err) {
-                        log(err + '. Continuing after submission');
+                        log(err);
                         window.beep();
                         $(document.querySelector(".save-next-btn-remove a.btn.btn-primary")).click(function () {
                             waiter('Verifying question', getTime(4, 6), verifier);
