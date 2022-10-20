@@ -1,7 +1,6 @@
 copy-data {
 	position: fixed;
 	inset: 50% 10px auto auto;
-	translate: 0 -50%;
 	padding: 10px;
 	background: #2a52be;
 	color: #fff;
@@ -9,6 +8,12 @@ copy-data {
 	box-shadow: 2px 2px 6px 4px #0002;
 	user-select: none;
 	cursor: pointer;
+}
+copy-data.top {
+	translate: 0 calc(-100% - 5px);
+}
+copy-data.bot {
+	translate: 0 5px;
 }
 .copy-data {
 	position: fixed;
