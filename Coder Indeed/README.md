@@ -1,3 +1,3 @@
 # Usage
 
-Paste this code into (Coder Indeed Page)[https://www.coderindeed.in]
+Paste this code into [Coder Indeed Page](https://www.coderindeed.in)

@@ -1,0 +1,21 @@
+copy-data {
+	padding: 10px;
+	background: #2a52be;
+	color: #fff;
+	box-sizing: border-box;
+	border-radius: 4px;
+	user-select: none;
+	cursor: pointer;
+}
+.copy-data {
+	position: fixed;
+	inset: 0 0 auto 0;
+	display: block;
+	padding: 10px;
+	font-size: inherit;
+	font-family: inherit;
+	z-index: 1111;
+}
+copy-data:hover {
+	background: dodgerblue;
+}
