@@ -9,11 +9,17 @@ copy-data {
 	user-select: none;
 	cursor: pointer;
 }
+copy-data.top-n {
+	translate: 0 calc(-200% - 15px);
+}
 copy-data.top {
 	translate: 0 calc(-100% - 5px);
 }
 copy-data.bot {
-	translate: 0 5px;
+	translate: 0 calc(0% + 5px);
+}
+copy-data.bot-n {
+	translate: 0 calc(100% + 15px);
 }
 .copy-data {
 	position: fixed;

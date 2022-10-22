@@ -11,10 +11,12 @@
     }
     (function () {
         const btn = document.createElement('copy-data');
-        btn.className = 'top';
-        btn.innerHTML = 'Copy for MyPerfective';
+        btn.className = 'top-n';
+        btn.innerHTML = 'Copy for MyPerfectice';
         document.body.appendChild(btn);
         btn.addEventListener('click', function () {
+            const node = document.querySelector('#postBody a.a2');
+            if (node) node.parentNode.removeChild(node);
             const div = document.querySelector("#postBody").querySelectorAll('div:not([class]):not([id]):not(:empty)');
             const map = { que: [], ans: [] };
             var index = 0;
@@ -32,12 +34,70 @@
             console.log(map);
             copyData(JSON.stringify(map));
             btn.innerHTML = 'Copied!';
-            setTimeout(function () { btn.innerHTML = 'Copy for MyPerfective'; }, 700);
+            setTimeout(function () { btn.innerHTML = 'Copy for MyPerfectice'; }, 700);
+        });
+    }());
+    (function () {
+        const btn = document.createElement('copy-data');
+        btn.className = 'top';
+        btn.innerHTML = 'Copy for MyPerfectice 2';
+        document.body.appendChild(btn);
+        btn.addEventListener('click', function () {
+            const node = document.querySelector('#postBody a.a2');
+            if (node) node.parentNode.removeChild(node);
+            const div = document.querySelector("#postBody").innerText.split('\n');
+            const map = { que: [], ans: [] };
+            var index = 0;
+            for (const item of div) {
+                const text = item.trim();
+                if (text && text.length > 1) {
+                    if (text.startsWith('Q')) {
+                        map.que[index] = (text.substring(text.indexOf(' ') + 1).toLowerCase().replaceAll('\n', '').replace(/[^a-zA-Z0-9]/g, '')) || null;
+                        index++;
+                    } else if (text.startsWith('Ans')) {
+                        map.ans[index - 1] = (text.substring(text.indexOf('-') + 1).toLowerCase().replaceAll('\n', '').replace(/[^a-zA-Z0-9]/g, '')) || null;
+                    }
+                }
+            }
+            console.log(map);
+            copyData(JSON.stringify(map));
+            btn.innerHTML = 'Copied!';
+            setTimeout(function () { btn.innerHTML = 'Copy for MyPerfectice 2'; }, 700);
         });
     }());
     (function () {
         const btn = document.createElement('copy-data');
         btn.className = 'bot';
+        btn.innerHTML = 'Copy for MyPerfectice 3';
+        document.body.appendChild(btn);
+        btn.addEventListener('click', function () {
+            const node = document.querySelector('#postBody a.a2');
+            if (node) node.parentNode.removeChild(node);
+            const div = document.querySelector("#postBody").innerText.split('\n');
+            const map = { que: [], ans: [] };
+            var index = 0;
+            for (const item of div) {
+                const text = item.trim();
+                if (text && text.length > 1) {
+                    if (text.startsWith('Q')) {
+                        map.que[index] = (text.substring(text.indexOf('.') + 1).toLowerCase().replaceAll('\n', '').replace(/[^a-zA-Z0-9]/g, '')) || '';
+                        index++;
+                    } else if (text.startsWith('Ans')) {
+                        map.ans[index - 1] = (text.substring(text.indexOf('-') + 1).toLowerCase().replaceAll('\n', '').replace(/[^a-zA-Z0-9]/g, '')) || '';
+                    } else if (map.que[index - 1]) {
+                        map.que[index - 1] += (text.toLowerCase().replaceAll('\n', '').replace(/[^a-zA-Z0-9]/g, '')) || '';
+                    }
+                }
+            }
+            console.log(map);
+            copyData(JSON.stringify(map));
+            btn.innerHTML = 'Copied!';
+            setTimeout(function () { btn.innerHTML = 'Copy for MyPerfectice 3'; }, 700);
+        });
+    }());
+    (function () {
+        const btn = document.createElement('copy-data');
+        btn.className = 'bot-n';
         btn.innerHTML = 'Copy for HitBullsEye';
         document.body.appendChild(btn);
         btn.addEventListener('click', function () {
