@@ -253,7 +253,7 @@
                 if (v === '') return s.reset();
                 v.toUpperCase().split('').forEach((e, i) => {
                     $.ce('span').html(`${i + 1}: ${e}${(i + 1) !== v.length ? ',&nbsp;' : ''}`).appendTo(r);
-                    if ((i + 1) % 10 === 0) r.append('<br />');
+                    if ((i + 1) % 5 === 0) r.append('<br />');
                 });
                 s.throw(r);
             }
@@ -275,9 +275,9 @@
                     $("input.closed").eq(0).bind("change", function () {
                         $("input#close_confirmed").click();
                     }).click();
-                }, 3000);
-            }, 10000);
-            e.form.stopper = $.ce('pass-test-button.scs', "Stop submission").appendTo($.ce('pass-test-center', $.ce('pass-test-null', 'All questions has been answered. Submitting test in 10 seconds.')).prependTo(e.solv)).click(() => {
+                }, 1000);
+            }, 6000);
+            e.form.stopper = $.ce('pass-test-button.scs', "Stop submission").appendTo($.ce('pass-test-center', $.ce('pass-test-null', 'All questions has been answered. Submitting test in 6 seconds.')).prependTo(e.solv)).click(() => {
                 clearTimeout(finaltimer);
                 e.form.stopper.remove();
                 e.solv.prepend($.ce('pass-test-center', $.ce('pass-test-null', 'Submission stopped.')));
@@ -286,11 +286,13 @@
         function start(string) {
             let display = null;
             let current = 0;
+            let fraction = 2;
+            let limit = 30;
             let index = 0;
             let time = 0;
             const generate = () => {
-                let maxtime = +(((+Js('input#remain_sec').val()) * 1 / 5) / (string.length - index)).toFixed(0);
-                if (maxtime > 50) maxtime = 50;
+                let maxtime = +(((+Js('input#remain_sec').val()) * fraction / 5) / (string.length - index)).toFixed(0);
+                if (maxtime > limit) maxtime = limit;
                 let mintime = +(maxtime / 2).toFixed(0);
                 return +(Math.random() * ((maxtime) - mintime) + mintime).toFixed(0);
             }

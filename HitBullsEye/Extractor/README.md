@@ -1,3 +1,3 @@
 # Usage
 
-Paste this code into [HitBullsEye Result Page](https://student.hitbullseye.com/testzone/question-wise-analysis)
+Paste this code into [https://student.hitbullseye.com](https://student.hitbullseye.com)
