@@ -54,8 +54,8 @@
                 right: 20px;
                 bottom: 20px;
                 width: calc(100vw - 40px);
-                max-height: 300px;
-                max-width: 300px;
+                max-height: 480px;
+                max-width: 320px;
                 box-shadow: 4px 4px 8px 4px #0004;
                 border-radius: 8px;
                 border: 1px solid #0004;
@@ -157,6 +157,7 @@
             }
             pass-test-null > span {
                 display: inline-block;
+                font-family: monospace !important;
             }
             pass-test-center {
                 display: flex;
@@ -252,7 +253,7 @@
                 const v = this.value, s = e.form.string, r = $.ce('pass-test-null');
                 if (v === '') return s.reset();
                 v.toUpperCase().split('').forEach((e, i) => {
-                    $.ce('span').html(`${i + 1}: ${e}${(i + 1) !== v.length ? ',&nbsp;' : ''}`).appendTo(r);
+                    $.ce('span').html(`${String(i + 1).padStart(3, '0')}: ${e}${(i + 1) !== v.length ? ',&nbsp;' : ''}`).appendTo(r);
                     if ((i + 1) % 5 === 0) r.append('<br />');
                 });
                 s.throw(r);
@@ -298,7 +299,7 @@
             }
             const createDisplay = (ind, curr) => {
                 const prg = $.ce('pass-test-bar-progress');
-                const dtl = $.ce('pass-test-bar-detail', `Que. ${ind + 1}&nbsp;&nbsp;&nbsp;&nbsp;Ans. ${string[ind]}&nbsp;&nbsp;&nbsp;&nbsp;Time. ${curr}s`);
+                const dtl = $.ce('pass-test-bar-detail', `Que. ${String(ind + 1).padStart(3, '0')}&nbsp;&nbsp;&nbsp;&nbsp;Ans. ${string[ind]}&nbsp;&nbsp;&nbsp;&nbsp;Time. ${curr}s`);
                 const bar = $.ce('pass-test-bar', prg, dtl);
                 const lin = $().add(prg).add(e.prog);
                 e.solv.prepend(bar);
